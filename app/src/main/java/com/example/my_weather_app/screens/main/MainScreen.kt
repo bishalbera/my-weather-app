@@ -35,21 +35,31 @@ fun MainScreen(
     settingsViewModel: SettingsViewModel = hiltViewModel(),
     city: String?
 ) {
-
-
-    val weatherData = produceState<DataOrException<Weather, Boolean, Exception>>(
-        initialValue = DataOrException(loading = true)
-    ) {
-        value = mainViewModel.getWeatherData(city = city.toString())
-    }.value
-
-    if (weatherData.loading == true) {
-        CircularProgressIndicator()
-    } else if (weatherData.data != null) {
-        MainScaffold(weather = weatherData.data!!, navController)
-
-
+    val unitFromDb = settingsViewModel.unitList.collectAsState().value
+    var unit by remember {
+        mutableStateOf("imperial")
     }
+    var isImperial by remember {
+        mutableStateOf(false)
+    }
+    if(!unitFromDb.isNullOrEmpty()){
+        unit = unitFromDb[0].unit.split(" ")[0].lowercase()
+        isImperial = unit == "imperial"
+        val weatherData = produceState<DataOrException<Weather, Boolean, Exception>>(
+            initialValue = DataOrException(loading = true)
+        ) {
+            value = mainViewModel.getWeatherData(city = city.toString(), units = unit)
+        }.value
+
+        if (weatherData.loading == true) {
+            CircularProgressIndicator()
+        } else if (weatherData.data != null) {
+            MainScaffold(weather = weatherData.data!!, navController)
+
+
+        }
+    }
+
 
 }
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
