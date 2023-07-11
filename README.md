@@ -1,4 +1,9 @@
 # Weather App
+![WhatsApp Image 2023-05-19 at 10 31 02](https://github.com/bishalbera/my-weather-app/assets/123734227/fa9dd83f-406b-4886-a248-f8f61fcea4a4)
+![WhatsApp Image 2023-05-19 at 10 31 02](https://github.com/bishalbera/my-weather-app/assets/123734227/04bcefec-5a3b-42d1-9070-cd2c659bab2e)
+![WhatsApp Image 2023-05-19 at 10 31 03](https://github.com/bishalbera/my-weather-app/assets/123734227/4501cac4-9aef-4a41-b8d2-554a0ca9089b)
+![WhatsApp Image 2023-05-19 at 10 31 03](https://github.com/bishalbera/my-weather-app/assets/123734227/9ad65929-1159-4be7-81b5-cda79b6dfe74)
+![WhatsApp Image 2023-05-19 at 10 31 04](https://github.com/bishalbera/my-weather-app/assets/123734227/c9bbef9b-0a88-4837-a565-1ef60060bc57)
 
 
 
