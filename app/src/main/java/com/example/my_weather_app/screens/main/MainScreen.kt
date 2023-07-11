@@ -22,7 +22,6 @@ import com.example.my_weather_app.data.DataOrException
 import com.example.my_weather_app.model.Weather
 import com.example.my_weather_app.model.WeatherItem
 import com.example.my_weather_app.navigation.WeatherScreens
-import com.example.my_weather_app.screens.setting.SettingsViewModel
 import com.example.my_weather_app.utils.formatDate
 import com.example.my_weather_app.utils.formatDecimals
 import com.example.my_weather_app.widgets.*
@@ -32,23 +31,13 @@ import com.example.my_weather_app.widgets.*
 fun MainScreen(
     navController: NavController,
     mainViewModel: MainViewModel = hiltViewModel(),
-    settingsViewModel: SettingsViewModel = hiltViewModel(),
     city: String?
 ) {
-    val unitFromDb = settingsViewModel.unitList.collectAsState().value
-    var unit by remember {
-        mutableStateOf("imperial")
-    }
-    var isImperial by remember {
-        mutableStateOf(false)
-    }
-    if(!unitFromDb.isNullOrEmpty()){
-        unit = unitFromDb[0].unit.split(" ")[0].lowercase()
-        isImperial = unit == "imperial"
+
         val weatherData = produceState<DataOrException<Weather, Boolean, Exception>>(
             initialValue = DataOrException(loading = true)
         ) {
-            value = mainViewModel.getWeatherData(city = city.toString(), units = unit)
+            value = mainViewModel.getWeatherData(city = city.toString())
         }.value
 
         if (weatherData.loading == true) {
@@ -61,7 +50,7 @@ fun MainScreen(
     }
 
 
-}
+
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     @Composable
     fun MainScaffold(weather: Weather, navController: NavController) {

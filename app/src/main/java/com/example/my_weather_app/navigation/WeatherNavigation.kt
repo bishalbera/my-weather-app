@@ -12,7 +12,6 @@ import com.example.my_weather_app.screens.favorite.FavoriteScreen
 import com.example.my_weather_app.screens.main.MainScreen
 import com.example.my_weather_app.screens.main.MainViewModel
 import com.example.my_weather_app.screens.search.SearchScreen
-import com.example.my_weather_app.screens.setting.SettingsScreen
 import com.example.my_weather_app.screens.splash.WeatherSplashScreen
 
 
@@ -49,7 +48,7 @@ fun WeatherNavigation() {
             AboutScreen(navController = navController)
         }
         composable(WeatherScreens.SettingsScreen.name){
-            SettingsScreen(navController = navController)
+           // SettingsScreen(navController = navController)
         }
 
         composable(WeatherScreens.FavoriteScreen.name){
