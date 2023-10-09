@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.example.my_weather_app.model.Favorite
 import com.example.my_weather_app.model.Unit
 
-@Database(entities = [Favorite::class, Unit::class], version = 2, exportSchema = false)
+@Database(entities = [Favorite::class, Unit::class], version = 3, exportSchema = false)
 abstract class WeatherDatabase: RoomDatabase() {
     abstract fun weatherDao(): WeatherDao
 }

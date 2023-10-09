@@ -45,7 +45,7 @@ fun WeatherNavigation() {
         }
 
         composable(WeatherScreens.AboutScreen.name){
-            AboutScreen(navController = navController)
+            AboutScreen(navController = navController,)
         }
         composable(WeatherScreens.SettingsScreen.name){
            // SettingsScreen(navController = navController)

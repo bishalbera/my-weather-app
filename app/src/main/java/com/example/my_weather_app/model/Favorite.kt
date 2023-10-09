@@ -13,4 +13,8 @@ data class Favorite(
     val city: String,
 
     @ColumnInfo(name = "country")
-    val country: String)
+    val country: String,
+
+    @ColumnInfo(name = "weatherDesc")
+    val weatherDesc: String
+    )

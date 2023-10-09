@@ -22,12 +22,12 @@ import com.example.my_weather_app.widgets.WeatherAppBar
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun AboutScreen(navController: NavController) {
+fun AboutScreen(navController: NavController,) {
     Scaffold(topBar = {
         WeatherAppBar(
             title = "About",
             icon = Icons.Default.ArrowBack,
-            false,
+            isMainScreen = false,
             navController = navController){
             navController.popBackStack()
         }

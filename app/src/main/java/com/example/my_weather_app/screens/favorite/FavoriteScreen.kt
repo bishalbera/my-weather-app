@@ -31,7 +31,8 @@ fun FavoriteScreen(navController: NavController,favoriteViewModel: FavoriteViewM
         "Favorite Cities",
         icon = Icons.Default.ArrowBack,
         isMainScreen = false,
-        navController = navController){
+        navController = navController,
+       ){
         navController.popBackStack() }
     }) {
         Surface(modifier = Modifier
@@ -39,7 +40,7 @@ fun FavoriteScreen(navController: NavController,favoriteViewModel: FavoriteViewM
             .fillMaxWidth()) {
                 Column(verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally) {
-                    val list = favoriteViewModel.favlist.collectAsState().value
+                    val list = favoriteViewModel.favList.collectAsState().value
 
                     LazyColumn {
                         items(items = list) {
@@ -68,13 +69,13 @@ fun CityRow(favorite: Favorite,
                    navController.navigate(WeatherScreens.MainScreen.name +"/${favorite.city}")
         },
         shape = CircleShape.copy(topEnd = CornerSize(6.dp)),
-        color = Color(0xFF162E2C)
+        color = Color(0xFF5936B4)
     ) {
         Row(modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceEvenly) {
             
-            Text(text = favorite.city,
+            Text(text = favorite.weatherDesc,
                 color = Color.White,
                 modifier = Modifier.padding(start = 4.dp))
             
